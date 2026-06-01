@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_2l#4z3r@40v0lwhjcmqp^#pj4lx5+2w@&-2d@9(jkoff%u+v7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -95,12 +95,8 @@ WSGI_APPLICATION = 'OnlineLearning.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'OnlineLearning',
-        'USER':'postgres',
-        'PASSWORD':'admin',
-        'HOST':'localhost',
-        'PORT':'5432', 
+        'ENGINE':.'django.db.backends.sqlite.3',
+        'NAME':BASE_DIR / 'db.sqlite3',
 
     }
 }
