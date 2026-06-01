@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Categories - LearnHub{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Categories</span><h1>Find courses by skill area</h1><p>Browse focused collections created for career momentum.</p></div></section>
+<section class="section-pad"><div class="container"><div class="row g-3">
+    <div class="col-sm-6 col-lg-3"><a class="category-card tall" href="{% url 'courses' %}"><i class="fa-solid fa-code"></i><span>Development</span><small>128 courses</small></a></div>
+    <div class="col-sm-6 col-lg-3"><a class="category-card tall" href="{% url 'courses' %}"><i class="fa-solid fa-chart-pie"></i><span>Data Science</span><small>92 courses</small></a></div>
+    <div class="col-sm-6 col-lg-3"><a class="category-card tall" href="{% url 'courses' %}"><i class="fa-solid fa-palette"></i><span>Design</span><small>76 courses</small></a></div>
+    <div class="col-sm-6 col-lg-3"><a class="category-card tall" href="{% url 'courses' %}"><i class="fa-solid fa-briefcase"></i><span>Business</span><small>84 courses</small></a></div>
+    <div class="col-sm-6 col-lg-3"><a class="category-card tall" href="{% url 'courses' %}"><i class="fa-solid fa-bullhorn"></i><span>Marketing</span><small>51 courses</small></a></div>
+    <div class="col-sm-6 col-lg-3"><a class="category-card tall" href="{% url 'courses' %}"><i class="fa-solid fa-cloud"></i><span>Cloud</span><small>38 courses</small></a></div>
+    <div class="col-sm-6 col-lg-3"><a class="category-card tall" href="{% url 'courses' %}"><i class="fa-solid fa-shield-halved"></i><span>Security</span><small>29 courses</small></a></div>
+    <div class="col-sm-6 col-lg-3"><a class="category-card tall" href="{% url 'courses' %}"><i class="fa-solid fa-language"></i><span>Languages</span><small>46 courses</small></a></div>
+</div></div></section>
+{% endblock %}

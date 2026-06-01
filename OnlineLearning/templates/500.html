@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}Server Error - LearnHub{% endblock %}
+{% block content %}
+<section class="error-page"><div class="container"><span>500</span><h1>Something went wrong</h1><p>Our learning platform hit a temporary problem.</p><a class="btn btn-primary btn-ripple" href="{% url 'home' %}">Return home</a></div></section>
+{% endblock %}

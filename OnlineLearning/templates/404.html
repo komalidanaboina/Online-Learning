@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}Page Not Found - LearnHub{% endblock %}
+{% block content %}
+<section class="error-page"><div class="container"><span>404</span><h1>Page not found</h1><p>The lesson you are looking for may have moved.</p><a class="btn btn-primary btn-ripple" href="{% url 'home' %}">Go home</a></div></section>
+{% endblock %}

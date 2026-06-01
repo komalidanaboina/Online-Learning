@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Edit Profile - LearnHub{% endblock %}
+{% block content %}
+<section class="page-hero compact"><div class="container"><h1>Edit profile</h1><p>Keep your learning profile current.</p></div></section>
+<section class="section-pad"><div class="container"><div class="settings-card mx-auto">
+    <form class="needs-validation" method="post" enctype="multipart/form-data" data-server-submit novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+        <div class="row g-3">
+            <div class="col-md-6"><label class="form-label" for="{{ form.first_name.id_for_label }}">First name</label>{{ form.first_name }}{% if form.first_name.errors %}<div class="text-danger small">{{ form.first_name.errors.0 }}</div>{% endif %}</div>
+            <div class="col-md-6"><label class="form-label" for="{{ form.last_name.id_for_label }}">Last name</label>{{ form.last_name }}{% if form.last_name.errors %}<div class="text-danger small">{{ form.last_name.errors.0 }}</div>{% endif %}</div>
+            <div class="col-md-6"><label class="form-label" for="{{ form.email.id_for_label }}">Email</label>{{ form.email }}{% if form.email.errors %}<div class="text-danger small">{{ form.email.errors.0 }}</div>{% endif %}</div>
+            <div class="col-md-6"><label class="form-label" for="{{ form.phone_number.id_for_label }}">Phone number</label>{{ form.phone_number }}{% if form.phone_number.errors %}<div class="text-danger small">{{ form.phone_number.errors.0 }}</div>{% endif %}</div>
+            <div class="col-md-4"><label class="form-label" for="{{ form.country.id_for_label }}">Country</label>{{ form.country }}</div>
+            <div class="col-md-4"><label class="form-label" for="{{ form.state.id_for_label }}">State</label>{{ form.state }}</div>
+            <div class="col-md-4"><label class="form-label" for="{{ form.city.id_for_label }}">City</label>{{ form.city }}</div>
+            <div class="col-12"><label class="form-label" for="{{ form.profile_image.id_for_label }}">Profile image</label>{{ form.profile_image }}{% if form.profile_image.errors %}<div class="text-danger small">{{ form.profile_image.errors.0 }}</div>{% endif %}</div>
+            <div class="col-12"><label class="form-label" for="{{ form.bio.id_for_label }}">Bio</label>{{ form.bio }}</div>
+        </div>
+        <button class="btn btn-primary mt-4 btn-ripple" type="submit">Save profile</button>
+    </form>
+</div></div></section>
+{% endblock %}

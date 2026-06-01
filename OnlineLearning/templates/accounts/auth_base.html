@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="auth-section">
+    <div class="container">
+        <div class="auth-shell" data-aos="fade-up">
+            <aside class="auth-art">
+                <a class="brand-mark" href="{% url 'home' %}">
+                    <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <span>LearnHub</span>
+                </a>
+                <h1>{% block auth_title %}Welcome back{% endblock %}</h1>
+                <p>{% block auth_copy %}Continue your learning path with guided courses, projects, and certificates.{% endblock %}</p>
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80" alt="Online learning session" loading="lazy">
+            </aside>
+            <div class="auth-card">
+                {% block auth_form %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

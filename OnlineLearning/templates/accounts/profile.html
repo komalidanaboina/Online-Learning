@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Profile - LearnHub{% endblock %}
+{% block content %}
+<section class="page-hero compact"><div class="container"><h1>Your profile</h1><p>Track your learning identity, certificates, and saved courses.</p></div></section>
+<section class="section-pad"><div class="container">
+    <div class="profile-card" data-aos="fade-up">
+        {% if user.profile_image %}
+        <img src="{{ user.profile_image.url }}" alt="{{ user.full_name }} profile avatar">
+        {% else %}
+        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=300&q=80" alt="{{ user.full_name }} profile avatar">
+        {% endif %}
+        <div>
+            <h2>{{ user.full_name }}</h2>
+            <p class="muted">{{ user.email }}</p>
+            {% if user.bio %}<p>{{ user.bio }}</p>{% endif %}
+            <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-primary btn-ripple" href="{% url 'edit_profile' %}">Edit profile</a>
+                <a class="btn btn-outline-primary" href="{% url 'change_password' %}">Change password</a>
+            </div>
+        </div>
+    </div>
+</div></section>
+{% endblock %}

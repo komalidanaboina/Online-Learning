@@ -1,0 +1,36 @@
+{% extends 'accounts/auth_base.html' %}
+{% block title %}Login - LearnHub{% endblock %}
+{% block auth_title %}Welcome back{% endblock %}
+{% block auth_form %}
+<h2>Login to your account</h2>
+<p class="muted">Pick up right where your last lesson ended.</p>
+<div class="alert alert-success d-none form-success" role="alert">Login form looks good.</div>
+{% if form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+    {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+</div>
+{% endif %}
+<form class="needs-validation" method="post" action="{% url 'login' %}" data-server-submit novalidate>
+    {% csrf_token %}
+    {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+    <div class="form-floating icon-input mb-3">
+        <input type="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="loginEmail" name="email" value="{{ form.email.value|default:'' }}" placeholder="name@example.com" autocomplete="email" required>
+        <label for="loginEmail">Email address</label>
+        <i class="fa-solid fa-envelope"></i>
+        <div class="invalid-feedback">{% if form.email.errors %}{{ form.email.errors.0 }}{% else %}Please enter your email.{% endif %}</div>
+    </div>
+    <div class="form-floating icon-input password-field mb-2">
+        <input type="password" class="form-control {% if form.password.errors %}is-invalid{% endif %}" id="loginPassword" name="password" placeholder="Password" autocomplete="current-password" required>
+        <label for="loginPassword">Password</label>
+        <i class="fa-solid fa-lock"></i>
+        <button type="button" class="password-toggle" aria-label="Show password"><i class="fa-regular fa-eye"></i></button>
+        <div class="invalid-feedback">{% if form.password.errors %}{{ form.password.errors.0 }}{% else %}Password is required.{% endif %}</div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="rememberMe" name="remember_me" {% if form.remember_me.value %}checked{% endif %}><label class="form-check-label" for="rememberMe">Remember me</label></div>
+        <a href="{% url 'forgot_password' %}">Forgot password?</a>
+    </div>
+    <button class="btn btn-primary w-100 btn-ripple" type="submit">Login</button>
+</form>
+<p class="auth-switch">New here? <a href="{% url 'signup' %}">Create an account</a></p>
+{% endblock %}

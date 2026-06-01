@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Instructor - LearnHub{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Teach on LearnHub</span><h1>Share your expertise with motivated learners</h1><p>Launch courses, track student progress, and grow your teaching brand.</p><a class="btn btn-primary btn-lg btn-ripple" href="{% url 'signup' %}">Start teaching</a></div></section>
+<section class="section-pad"><div class="container"><div class="row g-4"><div class="col-md-4"><div class="feature-card"><i class="fa-solid fa-video"></i><h2>Create lessons</h2><p>Organize videos, projects, resources, and assessments.</p></div></div><div class="col-md-4"><div class="feature-card"><i class="fa-solid fa-chart-line"></i><h2>Measure growth</h2><p>Understand engagement through a focused instructor dashboard.</p></div></div><div class="col-md-4"><div class="feature-card"><i class="fa-solid fa-users"></i><h2>Build community</h2><p>Support learners with updates, messages, and feedback loops.</p></div></div></div></div></section>
+{% endblock %}

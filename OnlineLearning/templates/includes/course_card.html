@@ -1,0 +1,22 @@
+<article class="course-card" data-course-card data-category="{{ category|default:'development' }}" data-title="{{ title|default:'Full Stack Web Development' }}">
+    <a class="course-media" href="{% url 'course_detail' slug|default:'full-stack-web-development' %}" aria-label="{{ title|default:'Course details' }}">
+        <img src="{{ image|default:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80' }}" alt="{{ title|default:'Online course preview' }}" loading="lazy">
+        <span class="course-badge">{{ level|default:'Bestseller' }}</span>
+    </a>
+    <div class="course-body">
+        <div class="course-meta">
+            <span><i class="fa-regular fa-clock"></i> {{ duration|default:'8 weeks' }}</span>
+            <span><i class="fa-solid fa-signal"></i> {{ category|default:'Development' }}</span>
+        </div>
+        <h3><a href="{% url 'course_detail' slug|default:'full-stack-web-development' %}">{{ title|default:'Full Stack Web Development' }}</a></h3>
+        <p class="instructor"><i class="fa-solid fa-user-tie"></i> {{ instructor|default:'Maya Srinivas' }}</p>
+        <div class="rating-row">
+            <span class="stars" aria-label="4.8 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+            <span>{{ rating|default:'4.8' }} ({{ reviews|default:'2.4k' }})</span>
+        </div>
+        <div class="course-footer">
+            <strong>{{ price|default:'Rs. 1,499' }}</strong>
+            <a class="btn btn-sm btn-primary btn-ripple" href="{% url 'course_detail' slug|default:'full-stack-web-development' %}">Enroll</a>
+        </div>
+    </div>
+</article>

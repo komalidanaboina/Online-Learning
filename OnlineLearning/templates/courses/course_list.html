@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Courses - LearnHub{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Course Catalog</span><h1>Explore practical online courses</h1><p>Filter by discipline, level, and learning goal.</p></div></section>
+<section class="section-pad">
+    <div class="container">
+        <div class="filter-bar" data-aos="fade-up">
+            <div class="search-inline"><i class="fa-solid fa-magnifying-glass"></i><input id="courseSearch" type="search" class="form-control" placeholder="Search courses"></div>
+            <div class="filter-pills" role="group" aria-label="Course category filters">
+                <button class="active" data-filter="all" type="button">All</button>
+                <button data-filter="development" type="button">Development</button>
+                <button data-filter="data" type="button">Data</button>
+                <button data-filter="design" type="button">Design</button>
+                <button data-filter="business" type="button">Business</button>
+            </div>
+        </div>
+        <div class="row g-4 mt-2" id="courseGrid">
+            <div class="col-md-6 col-xl-4">{% include 'includes/course_card.html' with title='Full Stack Web Development' category='development' slug='full-stack-web-development' %}</div>
+            <div class="col-md-6 col-xl-4">{% include 'includes/course_card.html' with title='Data Analytics with Python' category='data' slug='data-analytics-python' image='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80' %}</div>
+            <div class="col-md-6 col-xl-4">{% include 'includes/course_card.html' with title='UI UX Design Masterclass' category='design' slug='ui-ux-design-masterclass' image='https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=80' %}</div>
+            <div class="col-md-6 col-xl-4">{% include 'includes/course_card.html' with title='Digital Marketing Strategy' category='business' slug='digital-marketing-strategy' image='https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=900&q=80' %}</div>
+            <div class="col-md-6 col-xl-4">{% include 'includes/course_card.html' with title='Machine Learning Foundations' category='data' slug='machine-learning-foundations' image='https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80' %}</div>
+            <div class="col-md-6 col-xl-4">{% include 'includes/course_card.html' with title='Cloud DevOps Bootcamp' category='development' slug='cloud-devops-bootcamp' image='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80' %}</div>
+        </div>
+    </div>
+</section>
+{% endblock %}

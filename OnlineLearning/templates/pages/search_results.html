@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Search Results - LearnHub{% endblock %}
+{% block content %}
+<section class="page-hero compact"><div class="container"><span class="eyebrow">Search</span><h1>Search results</h1><p>Refine your query and discover the right course.</p></div></section>
+<section class="section-pad"><div class="container"><form class="filter-bar" action="{% url 'search' %}" method="get"><div class="search-inline"><i class="fa-solid fa-magnifying-glass"></i><input class="form-control" type="search" name="q" placeholder="Search LearnHub"></div><button class="btn btn-primary btn-ripple">Search</button></form><div class="row g-4 mt-2"><div class="col-md-6 col-xl-4">{% include 'includes/course_card.html' with title='Full Stack Web Development' category='development' slug='full-stack-web-development' %}</div><div class="col-md-6 col-xl-4">{% include 'includes/course_card.html' with title='Data Analytics with Python' category='data' slug='data-analytics-python' image='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80' %}</div></div></div></section>
+{% endblock %}

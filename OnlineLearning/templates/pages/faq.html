@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}FAQ - LearnHub{% endblock %}
+{% block content %}
+<section class="page-hero compact"><div class="container"><span class="eyebrow">FAQ</span><h1>Answers before you enroll</h1><p>Quick help for courses, certificates, billing, and dashboards.</p></div></section>
+<section class="section-pad"><div class="container narrow"><div class="accordion faq-accordion" id="faqAccordion">
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1" type="button">Do I get a certificate?</button></h2><div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes, eligible courses include a completion certificate after finishing required lessons and projects.</div></div></div>
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2" type="button">Can I learn on mobile?</button></h2><div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">The frontend is mobile-first and responsive across phones, tablets, and desktops.</div></div></div>
+    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3" type="button">Can instructors publish courses?</button></h2><div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes, the instructor dashboard is ready for course management workflows.</div></div></div>
+</div></div></section>
+{% endblock %}

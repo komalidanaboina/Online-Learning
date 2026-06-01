@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Student Dashboard - LearnHub{% endblock %}
+{% block content %}
+<section class="dashboard-layout">
+    <aside class="dashboard-sidebar"><h1>Student</h1><a class="active" href="#"><i class="fa-solid fa-grid-2"></i> Overview</a><a href="{% url 'courses' %}"><i class="fa-solid fa-book-open"></i> My courses</a><a href="{% url 'profile' %}"><i class="fa-solid fa-user"></i> Profile</a></aside>
+    <div class="dashboard-main">
+        <div class="dashboard-header"><div><span class="eyebrow">Welcome back</span><h2>Continue learning, {{ user.first_name|default:user.email }}</h2></div><a class="btn btn-primary btn-ripple" href="{% url 'courses' %}">Browse courses</a></div>
+        <div class="row g-3 metric-row"><div class="col-md-4"><div class="metric-card"><span>Courses</span><strong>6</strong></div></div><div class="col-md-4"><div class="metric-card"><span>Hours learned</span><strong>48</strong></div></div><div class="col-md-4"><div class="metric-card"><span>Certificates</span><strong>3</strong></div></div></div>
+        <div class="content-panel mt-4"><h3>Current courses</h3><div class="learning-list"><div><strong>Full Stack Web Development</strong><div class="progress"><div class="progress-bar" style="width:78%"></div></div></div><div><strong>Data Analytics with Python</strong><div class="progress"><div class="progress-bar bg-success" style="width:52%"></div></div></div></div></div>
+    </div>
+</section>
+{% endblock %}

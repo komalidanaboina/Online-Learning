@@ -1,0 +1,28 @@
+{% extends 'accounts/auth_base.html' %}
+{% block title %}Create Account - LearnHub{% endblock %}
+{% block auth_title %}Start learning today{% endblock %}
+{% block auth_copy %}Create a free account and unlock practical courses, projects, and progress tracking.{% endblock %}
+{% block auth_form %}
+<h2>Create your account</h2>
+<p class="muted">Join thousands of learners building career-ready skills.</p>
+<div class="alert alert-success d-none form-success" role="alert">Account form looks good.</div>
+{% if form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+    {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+</div>
+{% endif %}
+<form class="needs-validation" method="post" action="{% url 'signup' %}" data-server-submit novalidate>
+    {% csrf_token %}
+    <div class="row g-3">
+        <div class="col-md-6"><div class="form-floating icon-input"><input type="text" class="form-control {% if form.first_name.errors %}is-invalid{% endif %}" id="firstName" name="first_name" value="{{ form.first_name.value|default:'' }}" placeholder="First name" autocomplete="given-name" required><label for="firstName">First name</label><i class="fa-solid fa-user"></i><div class="invalid-feedback">{% if form.first_name.errors %}{{ form.first_name.errors.0 }}{% else %}Required.{% endif %}</div></div></div>
+        <div class="col-md-6"><div class="form-floating icon-input"><input type="text" class="form-control {% if form.last_name.errors %}is-invalid{% endif %}" id="lastName" name="last_name" value="{{ form.last_name.value|default:'' }}" placeholder="Last name" autocomplete="family-name" required><label for="lastName">Last name</label><i class="fa-solid fa-user"></i><div class="invalid-feedback">{% if form.last_name.errors %}{{ form.last_name.errors.0 }}{% else %}Required.{% endif %}</div></div></div>
+        <div class="col-12"><div class="form-floating icon-input"><input type="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="signupEmail" name="email" value="{{ form.email.value|default:'' }}" placeholder="name@example.com" autocomplete="email" required><label for="signupEmail">Email address</label><i class="fa-solid fa-envelope"></i><div class="invalid-feedback">{% if form.email.errors %}{{ form.email.errors.0 }}{% else %}Enter a valid email.{% endif %}</div></div></div>
+        <div class="col-12"><label class="form-label" for="role">Account type</label><select class="form-select {% if form.role.errors %}is-invalid{% endif %}" id="role" name="role" required><option value="student" {% if form.role.value == 'student' or not form.role.value %}selected{% endif %}>Student</option><option value="instructor" {% if form.role.value == 'instructor' %}selected{% endif %}>Instructor</option></select><div class="invalid-feedback">{% if form.role.errors %}{{ form.role.errors.0 }}{% else %}Choose an account type.{% endif %}</div></div>
+        <div class="col-12"><div class="form-floating icon-input password-field"><input type="password" class="form-control password-strength-input {% if form.password1.errors %}is-invalid{% endif %}" id="signupPassword" name="password1" placeholder="Password" minlength="8" autocomplete="new-password" required><label for="signupPassword">Password</label><i class="fa-solid fa-lock"></i><button type="button" class="password-toggle" aria-label="Show password"><i class="fa-regular fa-eye"></i></button><div class="invalid-feedback">{% if form.password1.errors %}{{ form.password1.errors.0 }}{% else %}Use at least 8 characters.{% endif %}</div></div><div class="password-strength mt-2"><span></span></div><small class="strength-label muted">Password strength</small></div>
+        <div class="col-12"><div class="form-floating icon-input password-field"><input type="password" class="form-control {% if form.password2.errors %}is-invalid{% endif %}" id="confirmPassword" name="password2" placeholder="Confirm password" minlength="8" autocomplete="new-password" required><label for="confirmPassword">Confirm password</label><i class="fa-solid fa-shield-halved"></i><button type="button" class="password-toggle" aria-label="Show password"><i class="fa-regular fa-eye"></i></button><div class="invalid-feedback">{% if form.password2.errors %}{{ form.password2.errors.0 }}{% else %}Confirm your password.{% endif %}</div></div></div>
+        <div class="col-12"><div class="form-check"><input class="form-check-input {% if form.terms.errors %}is-invalid{% endif %}" type="checkbox" id="terms" name="terms" required><label class="form-check-label" for="terms">I agree to the terms and privacy policy.</label><div class="invalid-feedback">{% if form.terms.errors %}{{ form.terms.errors.0 }}{% else %}Please accept before continuing.{% endif %}</div></div></div>
+    </div>
+    <button class="btn btn-primary w-100 mt-4 btn-ripple" type="submit">Create account</button>
+</form>
+<p class="auth-switch">Already registered? <a href="{% url 'login' %}">Login</a></p>
+{% endblock %}

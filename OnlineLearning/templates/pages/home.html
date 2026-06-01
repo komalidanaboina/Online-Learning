@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block title %}LearnHub - Premium Online Learning Portal{% endblock %}
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-up">
+                <span class="eyebrow"><i class="fa-solid fa-bolt"></i> Learn skills that move your career</span>
+                <h1>Build job-ready skills with <span id="typingText">expert-led courses</span></h1>
+                <p class="lead">Join practical classes, guided projects, certifications, and learning paths built for modern careers.</p>
+                <form class="hero-search" action="{% url 'search' %}" method="get">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" name="q" placeholder="Search courses, skills, or instructors" aria-label="Search courses">
+                    <button class="btn btn-primary btn-ripple" type="submit">Search</button>
+                </form>
+                <div class="hero-actions">
+                    <a class="btn btn-primary btn-lg btn-ripple" href="{% url 'courses' %}">Explore courses</a>
+                    <a class="btn btn-outline-light btn-lg" href="{% url 'instructor' %}">Become instructor</a>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="120">
+                <div class="hero-visual">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Students learning together online">
+                    <div class="floating-card progress-card">
+                        <span>Course progress</span>
+                        <strong>78%</strong>
+                        <div class="progress"><div class="progress-bar" style="width:78%"></div></div>
+                    </div>
+                    <div class="floating-card mentor-card"><i class="fa-solid fa-video"></i> Live mentorship today</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad">
+    <div class="container">
+        <div class="section-heading" data-aos="fade-up">
+            <span class="eyebrow">Featured Courses</span>
+            <h2>Popular courses learners love</h2>
+            <a href="{% url 'courses' %}">View all <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-xl-4" data-aos="fade-up">{% include 'includes/course_card.html' with title='Full Stack Web Development' category='development' slug='full-stack-web-development' price='Rs. 1,499' %}</div>
+            <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="80">{% include 'includes/course_card.html' with title='Data Analytics with Python' category='data' slug='data-analytics-python' image='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80' price='Rs. 1,799' %}</div>
+            <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="160">{% include 'includes/course_card.html' with title='UI UX Design Masterclass' category='design' slug='ui-ux-design-masterclass' image='https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=80' price='Rs. 1,299' %}</div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad soft-section">
+    <div class="container">
+        <div class="section-heading centered" data-aos="fade-up">
+            <span class="eyebrow">Categories</span>
+            <h2>Choose your next learning path</h2>
+        </div>
+        <div class="row g-3">
+            <div class="col-6 col-lg-3" data-aos="fade-up"><a class="category-card" href="{% url 'categories' %}"><i class="fa-solid fa-code"></i><span>Development</span><small>128 courses</small></a></div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="60"><a class="category-card" href="{% url 'categories' %}"><i class="fa-solid fa-chart-line"></i><span>Business</span><small>84 courses</small></a></div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="120"><a class="category-card" href="{% url 'categories' %}"><i class="fa-solid fa-palette"></i><span>Design</span><small>76 courses</small></a></div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="180"><a class="category-card" href="{% url 'categories' %}"><i class="fa-solid fa-robot"></i><span>AI and Data</span><small>92 courses</small></a></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-5" data-aos="fade-right">
+                <span class="eyebrow">Top Instructors</span>
+                <h2>Learn from practitioners who teach with clarity</h2>
+                <p class="muted">Our instructors combine real industry work with structured lessons, projects, and feedback.</p>
+                <a class="btn btn-primary btn-ripple" href="{% url 'instructor' %}">Meet instructors</a>
+            </div>
+            <div class="col-lg-7">
+                <div class="instructor-grid">
+                    <div class="instructor-card" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" alt="Instructor Maya"><strong>Maya Srinivas</strong><span>Web Architecture</span></div>
+                    <div class="instructor-card" data-aos="zoom-in" data-aos-delay="80"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="Instructor Rahul"><strong>Rahul Mehta</strong><span>Data Science</span></div>
+                    <div class="instructor-card" data-aos="zoom-in" data-aos-delay="160"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Instructor Elena"><strong>Elena Rao</strong><span>Product Design</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stats-band">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-6 col-lg-3"><strong class="counter" data-count="52000">0</strong><span>Learners</span></div>
+            <div class="col-6 col-lg-3"><strong class="counter" data-count="420">0</strong><span>Courses</span></div>
+            <div class="col-6 col-lg-3"><strong class="counter" data-count="96">0</strong><span>Success rate</span></div>
+            <div class="col-6 col-lg-3"><strong class="counter" data-count="120">0</strong><span>Mentors</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6" data-aos="fade-up">
+                <span class="eyebrow">Why Choose Us</span>
+                <h2>Everything needed to keep learning momentum high</h2>
+                <div class="feature-list">
+                    <div><i class="fa-solid fa-check"></i><span>Project-based curriculum with certificates.</span></div>
+                    <div><i class="fa-solid fa-check"></i><span>Progress dashboards for students and instructors.</span></div>
+                    <div><i class="fa-solid fa-check"></i><span>Responsive learning experience on every device.</span></div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active"><blockquote>"The course projects helped me switch into frontend development in three months."</blockquote><strong>Anika P.</strong></div>
+                        <div class="carousel-item"><blockquote>"Clean lessons, great instructors, and the dashboard kept me accountable."</blockquote><strong>Karan S.</strong></div>
+                        <div class="carousel-item"><blockquote>"The design curriculum felt premium and practical from day one."</blockquote><strong>Sofia M.</strong></div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" aria-label="Previous testimonial"><span class="carousel-control-prev-icon"></span></button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" aria-label="Next testimonial"><span class="carousel-control-next-icon"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="newsletter-band">
+    <div class="container">
+        <div class="newsletter-panel" data-aos="zoom-in">
+            <div>
+                <span class="eyebrow">Newsletter</span>
+                <h2>Get weekly learning plans and course drops</h2>
+            </div>
+            <form class="newsletter-form needs-validation" novalidate>
+                <input type="email" class="form-control" placeholder="Email address" required>
+                <button class="btn btn-accent btn-ripple" type="submit">Join free</button>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
