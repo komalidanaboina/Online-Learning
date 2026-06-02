@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'OnlineLearning.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':.'django.db.backends.sqlite.3',
+        'ENGINE':'django.db.backends.sqlite3',
         'NAME':BASE_DIR / 'db.sqlite3',
 
     }
